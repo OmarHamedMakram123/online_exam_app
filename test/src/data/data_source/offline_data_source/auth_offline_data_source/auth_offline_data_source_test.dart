@@ -43,9 +43,9 @@ void main() {
           test(
             "should return Exception when call authOfflineDataSource.saveToken if token is Empty ",
             () async {
-              String token = "";
-              expect(() => authOfflineDataSource.saveToken(token: token),
-                  isA<Exception>());
+              String?  token;
+              var actual=authOfflineDataSource.saveToken(token: token);
+              expect(actual, throwsA(isA<Exception>()));
             },
           );
         },

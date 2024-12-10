@@ -55,6 +55,8 @@ void main() {
               when(mockedAuthOnlineDataSource.login(loginRequest)).thenAnswer(
                 (realInvocation) async => appUserModel,
               );
+              when(authOfflineDataSource.saveToken(token: "token")).thenAnswer((realInvocation) async=>{} ,);
+
               when(mockedAuthMapper.toAppUserModel(appUserModel))
                   .thenReturn(appUserEntity);
 
@@ -70,6 +72,7 @@ void main() {
                   DioException(
                       requestOptions: RequestOptions(),
                       type: DioExceptionType.connectionError));
+             when(authOfflineDataSource.saveToken(token: "token")).thenAnswer((realInvocation) async=>{} ,);
               var actual =
                   await authRepository.login(loginRequest: loginRequest);
               expect(actual, isA<Failures<AppUserEntity>>());
@@ -198,8 +201,6 @@ void main() {
                   .thenAnswer(
                 (realInvocation) async => successResponseModel,
               );
-              when(mockedAuthMapper.toAppUserModel(appUserModel))
-                  .thenReturn(appUserEntity);
               var actual = await authRepository.changePassword(
                   changePasswordRequest: changePasswordRequest);
               expect(actual, isA<Success<bool>>());
@@ -211,8 +212,6 @@ void main() {
             when(mockedAuthOnlineDataSource.changePassword(
                     changePasswordRequest: changePasswordRequest))
                 .thenThrow(Exception());
-            when(mockedAuthMapper.toAppUserModel(appUserModel))
-                .thenReturn(appUserEntity);
             var actual = await authRepository.changePassword(
                 changePasswordRequest: changePasswordRequest);
             expect(actual, isA<Failures<bool>>());

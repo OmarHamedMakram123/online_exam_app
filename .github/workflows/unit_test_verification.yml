@@ -1,0 +1,19 @@
+name : unit_test_verifications
+
+on:
+  push:
+    pull_request:
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          flutter_version: 3.22.2
+
+      - run: flutter pub get
+      - run: flutter test
