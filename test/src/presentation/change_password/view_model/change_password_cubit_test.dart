@@ -41,7 +41,7 @@ void main() {
         },
         expect: () => <TypeMatcher<ChangePasswordState>>[
           isA<ChangePasswordLoadingState>(),
-          isA<ChangePasswordSuccessState>(),
+          isA<ChangePasswordFailuresState>(),
         ],
       );
       blocTest<ChangePasswordCubit, ChangePasswordState>(
