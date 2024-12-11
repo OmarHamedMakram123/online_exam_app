@@ -3,7 +3,7 @@
  on:
    push:
 
-   pullRequest:
+   pull_request:
 
 
  jobs:
