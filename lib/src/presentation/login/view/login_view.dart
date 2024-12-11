@@ -43,7 +43,8 @@ class _LoginViewState extends State<LoginView> {
   void _handleBlocListenerState(LoginState state) {
     if (state is LoginLoadingState) {
       LoadingDialog.show(context);
-    } else if (state is LoginFailuresState) {
+    }
+    else if (state is LoginFailuresState) {
       LoadingDialog.hide(context);
       showAwesomeDialog(
         context,
@@ -75,10 +76,10 @@ class _LoginViewState extends State<LoginView> {
   }
 
   void _navigateToForgetPasswordScreen() {
-    Navigator.pushNamed(context, PageRouteName.login);
+    Navigator.pushNamed(context, PageRouteName.forgetPassword);
   }
 
   void _navigateToRegister() {
-    Navigator.pushNamed(context, PageRouteName.login);
+    Navigator.pushNamed(context, PageRouteName.register);
   }
 }

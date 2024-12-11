@@ -1,6 +1,6 @@
-class LoginRequest {
+class ForgetPasswordRequest {
   String? email;
-  LoginRequest({required this.email});
+  ForgetPasswordRequest({required this.email});
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> map = {};

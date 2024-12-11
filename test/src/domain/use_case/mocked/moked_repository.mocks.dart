@@ -10,20 +10,28 @@ import 'package:mockito/src/dummies.dart' as _i7;
 import 'package:online_exam_app/core/api/common/api_result.dart' as _i4;
 import 'package:online_exam_app/src/data/model/request/change_password_request.dart'
     as _i10;
+import 'package:online_exam_app/src/data/model/request/forget_password_request.dart'
+    as _i12;
 import 'package:online_exam_app/src/data/model/request/login_request.dart'
     as _i6;
 import 'package:online_exam_app/src/data/model/request/register_request.dart'
     as _i8;
+import 'package:online_exam_app/src/data/model/request/reset_password_request.dart'
+    as _i13;
 import 'package:online_exam_app/src/data/model/request/update_profile_request.dart'
     as _i9;
+import 'package:online_exam_app/src/data/model/request/verify_reset_code_request.dart'
+    as _i14;
 import 'package:online_exam_app/src/domain/entities/app_user_entity.dart'
     as _i5;
 import 'package:online_exam_app/src/domain/entities/subject_entity.dart'
-    as _i12;
+    as _i16;
+import 'package:online_exam_app/src/domain/entities/success_auth_entity.dart'
+    as _i11;
 import 'package:online_exam_app/src/domain/repositories/auth_repository.dart'
     as _i2;
 import 'package:online_exam_app/src/domain/repositories/subject_repository.dart'
-    as _i11;
+    as _i15;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -142,30 +150,106 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<bool>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>> forgetPassword(
+          {required _i12.ForgetPasswordRequest? forgetPasswordRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #forgetPassword,
+          [],
+          {#forgetPasswordRequest: forgetPasswordRequest},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i11.SuccessAuthEntity>>(
+          this,
+          Invocation.method(
+            #forgetPassword,
+            [],
+            {#forgetPasswordRequest: forgetPasswordRequest},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>> resetPassword(
+          {required _i13.ResetPasswordRequest? resetPasswordRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #resetPassword,
+          [],
+          {#resetPasswordRequest: resetPasswordRequest},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i11.SuccessAuthEntity>>(
+          this,
+          Invocation.method(
+            #resetPassword,
+            [],
+            {#resetPasswordRequest: resetPasswordRequest},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>> verifyResetCode(
+          {required _i14.VerifyResetCodeRequest? verifyRestCode}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #verifyResetCode,
+          [],
+          {#verifyRestCode: verifyRestCode},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i11.SuccessAuthEntity>>(
+          this,
+          Invocation.method(
+            #verifyResetCode,
+            [],
+            {#verifyRestCode: verifyRestCode},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i11.SuccessAuthEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<bool>> logOut() => (super.noSuchMethod(
+        Invocation.method(
+          #logOut,
+          [],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<bool>>.value(
+            _i7.dummyValue<_i4.ApiResult<bool>>(
+          this,
+          Invocation.method(
+            #logOut,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<bool>>);
 }
 
 /// A class which mocks [SubjectRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSubjectRepository extends _i1.Mock implements _i11.SubjectRepository {
+class MockSubjectRepository extends _i1.Mock implements _i15.SubjectRepository {
   MockSubjectRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<_i4.ApiResult<List<_i12.SubjectEntity>>> getAllSubject() =>
+  _i3.Future<_i4.ApiResult<List<_i16.SubjectEntity>>> getAllSubject() =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllSubject,
           [],
         ),
-        returnValue: _i3.Future<_i4.ApiResult<List<_i12.SubjectEntity>>>.value(
-            _i7.dummyValue<_i4.ApiResult<List<_i12.SubjectEntity>>>(
+        returnValue: _i3.Future<_i4.ApiResult<List<_i16.SubjectEntity>>>.value(
+            _i7.dummyValue<_i4.ApiResult<List<_i16.SubjectEntity>>>(
           this,
           Invocation.method(
             #getAllSubject,
             [],
           ),
         )),
-      ) as _i3.Future<_i4.ApiResult<List<_i12.SubjectEntity>>>);
+      ) as _i3.Future<_i4.ApiResult<List<_i16.SubjectEntity>>>);
 }

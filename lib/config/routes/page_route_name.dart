@@ -4,6 +4,7 @@ class PageRouteName{
   static const String register="register";
   static const String forgetPassword="forgetPassword";
   static const String baseScreen="baseScreen";
+  static const String verifyResetCode="verifyResetCode";
   static const String resetPassword="resetPassword";
   static const String changePassword="changePassword";
   static const String getAllExamsScreen="GetAllExamsScreen";

@@ -20,7 +20,7 @@ class OnlineExamApp extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: const Locale("en"),
-          initialRoute: PageRouteName.login,
+          initialRoute: PageRouteName.splash,
           onGenerateRoute: (settings) => AppRoutes.onGenerateRoute(settings),
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.light,

@@ -46,5 +46,7 @@
   "browseBySubject":"Browse by subject",
   "survey": "Survey",
   "pleaseEnterLogin": "Please Enter Login",
-  "tryAgain": "Try Again"
+  "tryAgain": "Try Again",
+  "didNtReceiveCode": "Didn't receive code ? ",
+  "resend" : "Resend"
 }

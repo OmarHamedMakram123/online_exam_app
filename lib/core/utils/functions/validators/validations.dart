@@ -49,30 +49,4 @@ abstract class Validations {
     return null;
   }
 
-  // static String? validateOTP(String? otp) {
-  //   if (otp!.isEmpty) {
-  //     return '🔴OTP is required!';
-  //   } else if (!AppRegExp.isOTPValid(otp)) {
-  //     return 'This OTP is not valid';
-  //   }
-  //   return null;
-  // }
-  //
-  // static String? validateNationalID(String? nationalID) {
-  //   if (nationalID!.isEmpty) {
-  //     return '🔴National ID is required!';
-  //   } else if (!AppRegExp.isNationalIDValid(nationalID)) {
-  //     return 'This National ID is not valid';
-  //   }
-  //   return null;
-  // }
-  //
-  // static String? validateCardCCV(String? ccv) {
-  //   if (ccv!.isEmpty) {
-  //     return '🔴CCV is required!';
-  //   } else if (!AppRegExp.isCardCVVValid(ccv)) {
-  //     return 'This CCV is not valid';
-  //   }
-  //   return null;
-  // }
 }

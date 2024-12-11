@@ -8,7 +8,7 @@ import 'package:online_exam_app/core/error/error_model.dart';
 import 'package:online_exam_app/src/data/model/request/change_password_request.dart';
 import 'package:online_exam_app/src/presentation/change_password/view_model/change_password_action.dart';
 
-import '../../../domain/use_case/change_password_use_case.dart';
+import '../../../domain/use_case/auth_use_case/change_password_use_case.dart';
 
 part 'change_password_state.dart';
 

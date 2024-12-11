@@ -3,23 +3,32 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
+import 'dart:async' as _i7;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:online_exam_app/src/data/api/api_manger.dart' as _i5;
+import 'package:mockito/src/dummies.dart' as _i12;
+import 'package:online_exam_app/src/data/api/api_manger.dart' as _i6;
 import 'package:online_exam_app/src/data/model/request/change_password_request.dart'
-    as _i10;
+    as _i11;
+import 'package:online_exam_app/src/data/model/request/forget_password_request.dart'
+    as _i13;
 import 'package:online_exam_app/src/data/model/request/login_request.dart'
-    as _i7;
-import 'package:online_exam_app/src/data/model/request/register_request.dart'
     as _i8;
-import 'package:online_exam_app/src/data/model/request/update_profile_request.dart'
+import 'package:online_exam_app/src/data/model/request/register_request.dart'
     as _i9;
+import 'package:online_exam_app/src/data/model/request/reset_password_request.dart'
+    as _i15;
+import 'package:online_exam_app/src/data/model/request/update_profile_request.dart'
+    as _i10;
+import 'package:online_exam_app/src/data/model/request/verify_reset_code_request.dart'
+    as _i14;
 import 'package:online_exam_app/src/data/model/response/app_user_model/app_user_model.dart'
     as _i2;
+import 'package:online_exam_app/src/data/model/response/forget_password_response/forget_password_response_model.dart'
+    as _i5;
 import 'package:online_exam_app/src/data/model/response/subject_response_model/subject_response_model.dart'
     as _i3;
-import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_response_model.dart'
+import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_auth_response_model.dart'
     as _i4;
 
 // ignore_for_file: type=lint
@@ -56,9 +65,20 @@ class _FakeSubjectResponseModel_1 extends _i1.SmartFake
         );
 }
 
-class _FakeSuccessResponseModel_2 extends _i1.SmartFake
-    implements _i4.SuccessResponseModel {
-  _FakeSuccessResponseModel_2(
+class _FakeSuccessAuthResponseModel_2 extends _i1.SmartFake
+    implements _i4.SuccessAuthResponseModel {
+  _FakeSuccessAuthResponseModel_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeForgetPasswordResponseModel_3 extends _i1.SmartFake
+    implements _i5.ForgetPasswordResponseModel {
+  _FakeForgetPasswordResponseModel_3(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -70,50 +90,50 @@ class _FakeSuccessResponseModel_2 extends _i1.SmartFake
 /// A class which mocks [ApiManger].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiManger extends _i1.Mock implements _i5.ApiManger {
+class MockApiManger extends _i1.Mock implements _i6.ApiManger {
   MockApiManger() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.AppUserModel> login(_i7.LoginRequest? loginRequest) =>
+  _i7.Future<_i2.AppUserModel> login(_i8.LoginRequest? loginRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #login,
           [loginRequest],
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i7.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #login,
             [loginRequest],
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i7.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i2.AppUserModel> register(_i8.RegisterRequest? registerRequest) =>
+  _i7.Future<_i2.AppUserModel> register(_i9.RegisterRequest? registerRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #register,
           [registerRequest],
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i7.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #register,
             [registerRequest],
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i7.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i3.SubjectResponseModel> getAllSubject() => (super.noSuchMethod(
+  _i7.Future<_i3.SubjectResponseModel> getAllSubject() => (super.noSuchMethod(
         Invocation.method(
           #getAllSubject,
           [],
         ),
-        returnValue: _i6.Future<_i3.SubjectResponseModel>.value(
+        returnValue: _i7.Future<_i3.SubjectResponseModel>.value(
             _FakeSubjectResponseModel_1(
           this,
           Invocation.method(
@@ -121,33 +141,33 @@ class MockApiManger extends _i1.Mock implements _i5.ApiManger {
             [],
           ),
         )),
-      ) as _i6.Future<_i3.SubjectResponseModel>);
+      ) as _i7.Future<_i3.SubjectResponseModel>);
 
   @override
-  _i6.Future<_i2.AppUserModel> getLoggedUserInfo() => (super.noSuchMethod(
+  _i7.Future<_i2.AppUserModel> getLoggedUserInfo() => (super.noSuchMethod(
         Invocation.method(
           #getLoggedUserInfo,
           [],
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i7.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #getLoggedUserInfo,
             [],
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i7.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i2.AppUserModel> updateProfileData(
-          {required _i9.UpdateProfileRequest? updateProfileRequest}) =>
+  _i7.Future<_i2.AppUserModel> updateProfileData(
+          {required _i10.UpdateProfileRequest? updateProfileRequest}) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateProfileData,
           [],
           {#updateProfileRequest: updateProfileRequest},
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i7.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #updateProfileData,
@@ -155,19 +175,19 @@ class MockApiManger extends _i1.Mock implements _i5.ApiManger {
             {#updateProfileRequest: updateProfileRequest},
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i7.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i4.SuccessResponseModel> changePassword(
-          {required _i10.ChangePasswordRequest? changePasswordRequest}) =>
+  _i7.Future<_i4.SuccessAuthResponseModel> changePassword(
+          {required _i11.ChangePasswordRequest? changePasswordRequest}) =>
       (super.noSuchMethod(
         Invocation.method(
           #changePassword,
           [],
           {#changePasswordRequest: changePasswordRequest},
         ),
-        returnValue: _i6.Future<_i4.SuccessResponseModel>.value(
-            _FakeSuccessResponseModel_2(
+        returnValue: _i7.Future<_i4.SuccessAuthResponseModel>.value(
+            _FakeSuccessAuthResponseModel_2(
           this,
           Invocation.method(
             #changePassword,
@@ -175,5 +195,80 @@ class MockApiManger extends _i1.Mock implements _i5.ApiManger {
             {#changePasswordRequest: changePasswordRequest},
           ),
         )),
-      ) as _i6.Future<_i4.SuccessResponseModel>);
+      ) as _i7.Future<_i4.SuccessAuthResponseModel>);
+
+  @override
+  _i7.Future<String> logoOut() => (super.noSuchMethod(
+        Invocation.method(
+          #logoOut,
+          [],
+        ),
+        returnValue: _i7.Future<String>.value(_i12.dummyValue<String>(
+          this,
+          Invocation.method(
+            #logoOut,
+            [],
+          ),
+        )),
+      ) as _i7.Future<String>);
+
+  @override
+  _i7.Future<_i5.ForgetPasswordResponseModel> forgetPassword(
+          {required _i13.ForgetPasswordRequest? forgetPasswordRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #forgetPassword,
+          [],
+          {#forgetPasswordRequest: forgetPasswordRequest},
+        ),
+        returnValue: _i7.Future<_i5.ForgetPasswordResponseModel>.value(
+            _FakeForgetPasswordResponseModel_3(
+          this,
+          Invocation.method(
+            #forgetPassword,
+            [],
+            {#forgetPasswordRequest: forgetPasswordRequest},
+          ),
+        )),
+      ) as _i7.Future<_i5.ForgetPasswordResponseModel>);
+
+  @override
+  _i7.Future<_i4.SuccessAuthResponseModel> verifyResetCode(
+          {required _i14.VerifyResetCodeRequest? verifyRestCode}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #verifyResetCode,
+          [],
+          {#verifyRestCode: verifyRestCode},
+        ),
+        returnValue: _i7.Future<_i4.SuccessAuthResponseModel>.value(
+            _FakeSuccessAuthResponseModel_2(
+          this,
+          Invocation.method(
+            #verifyResetCode,
+            [],
+            {#verifyRestCode: verifyRestCode},
+          ),
+        )),
+      ) as _i7.Future<_i4.SuccessAuthResponseModel>);
+
+  @override
+  _i7.Future<_i4.SuccessAuthResponseModel> resetPassword(
+          {required _i15.ResetPasswordRequest? resetPasswordRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #resetPassword,
+          [],
+          {#resetPasswordRequest: resetPasswordRequest},
+        ),
+        returnValue: _i7.Future<_i4.SuccessAuthResponseModel>.value(
+            _FakeSuccessAuthResponseModel_2(
+          this,
+          Invocation.method(
+            #resetPassword,
+            [],
+            {#resetPasswordRequest: resetPasswordRequest},
+          ),
+        )),
+      ) as _i7.Future<_i4.SuccessAuthResponseModel>);
 }

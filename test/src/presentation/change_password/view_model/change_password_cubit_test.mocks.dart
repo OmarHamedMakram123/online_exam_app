@@ -12,7 +12,7 @@ import 'package:online_exam_app/src/data/model/request/change_password_request.d
     as _i6;
 import 'package:online_exam_app/src/domain/repositories/auth_repository.dart'
     as _i2;
-import 'package:online_exam_app/src/domain/use_case/change_password_use_case.dart'
+import 'package:online_exam_app/src/domain/use_case/auth_use_case/change_password_use_case.dart'
     as _i3;
 
 // ignore_for_file: type=lint

@@ -3,28 +3,39 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i6;
+import 'dart:async' as _i8;
 
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i16;
 import 'package:online_exam_app/src/data/data_source/offline_data_source/auth_offline_data_source/auth_offline_data_source.dart'
-    as _i12;
+    as _i18;
 import 'package:online_exam_app/src/data/data_source/online_data_source/auth_data_source/auth_online_data_source.dart'
-    as _i5;
-import 'package:online_exam_app/src/data/mappers/auth_mapper.dart' as _i11;
-import 'package:online_exam_app/src/data/model/request/change_password_request.dart'
-    as _i10;
-import 'package:online_exam_app/src/data/model/request/login_request.dart'
     as _i7;
-import 'package:online_exam_app/src/data/model/request/register_request.dart'
-    as _i8;
-import 'package:online_exam_app/src/data/model/request/update_profile_request.dart'
+import 'package:online_exam_app/src/data/mappers/auth_mapper.dart' as _i17;
+import 'package:online_exam_app/src/data/model/request/change_password_request.dart'
+    as _i12;
+import 'package:online_exam_app/src/data/model/request/forget_password_request.dart'
+    as _i13;
+import 'package:online_exam_app/src/data/model/request/login_request.dart'
     as _i9;
+import 'package:online_exam_app/src/data/model/request/register_request.dart'
+    as _i10;
+import 'package:online_exam_app/src/data/model/request/reset_password_request.dart'
+    as _i15;
+import 'package:online_exam_app/src/data/model/request/update_profile_request.dart'
+    as _i11;
+import 'package:online_exam_app/src/data/model/request/verify_reset_code_request.dart'
+    as _i14;
 import 'package:online_exam_app/src/data/model/response/app_user_model/app_user_model.dart'
     as _i2;
-import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_response_model.dart'
+import 'package:online_exam_app/src/data/model/response/forget_password_response/forget_password_response_model.dart'
+    as _i4;
+import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_auth_response_model.dart'
     as _i3;
 import 'package:online_exam_app/src/domain/entities/app_user_entity.dart'
-    as _i4;
+    as _i5;
+import 'package:online_exam_app/src/domain/entities/success_auth_entity.dart'
+    as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -49,9 +60,9 @@ class _FakeAppUserModel_0 extends _i1.SmartFake implements _i2.AppUserModel {
         );
 }
 
-class _FakeSuccessResponseModel_1 extends _i1.SmartFake
-    implements _i3.SuccessResponseModel {
-  _FakeSuccessResponseModel_1(
+class _FakeSuccessAuthResponseModel_1 extends _i1.SmartFake
+    implements _i3.SuccessAuthResponseModel {
+  _FakeSuccessAuthResponseModel_1(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -60,8 +71,30 @@ class _FakeSuccessResponseModel_1 extends _i1.SmartFake
         );
 }
 
-class _FakeAppUserEntity_2 extends _i1.SmartFake implements _i4.AppUserEntity {
-  _FakeAppUserEntity_2(
+class _FakeForgetPasswordResponseModel_2 extends _i1.SmartFake
+    implements _i4.ForgetPasswordResponseModel {
+  _FakeForgetPasswordResponseModel_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeAppUserEntity_3 extends _i1.SmartFake implements _i5.AppUserEntity {
+  _FakeAppUserEntity_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeSuccessAuthEntity_4 extends _i1.SmartFake
+    implements _i6.SuccessAuthEntity {
+  _FakeSuccessAuthEntity_4(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -74,68 +107,69 @@ class _FakeAppUserEntity_2 extends _i1.SmartFake implements _i4.AppUserEntity {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthOnlineDataSource extends _i1.Mock
-    implements _i5.AuthOnlineDataSource {
+    implements _i7.AuthOnlineDataSource {
   MockAuthOnlineDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.AppUserModel> login(_i7.LoginRequest? loginRequest) =>
+  _i8.Future<_i2.AppUserModel> login(_i9.LoginRequest? loginRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #login,
           [loginRequest],
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i8.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #login,
             [loginRequest],
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i8.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i2.AppUserModel> register(_i8.RegisterRequest? registerRequest) =>
+  _i8.Future<_i2.AppUserModel> register(
+          _i10.RegisterRequest? registerRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #register,
           [registerRequest],
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i8.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #register,
             [registerRequest],
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i8.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i2.AppUserModel> getProfileDate() => (super.noSuchMethod(
+  _i8.Future<_i2.AppUserModel> getProfileDate() => (super.noSuchMethod(
         Invocation.method(
           #getProfileDate,
           [],
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i8.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #getProfileDate,
             [],
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i8.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i2.AppUserModel> updateProfile(
-          {required _i9.UpdateProfileRequest? updateProfileRequest}) =>
+  _i8.Future<_i2.AppUserModel> updateProfile(
+          {required _i11.UpdateProfileRequest? updateProfileRequest}) =>
       (super.noSuchMethod(
         Invocation.method(
           #updateProfile,
           [],
           {#updateProfileRequest: updateProfileRequest},
         ),
-        returnValue: _i6.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
+        returnValue: _i8.Future<_i2.AppUserModel>.value(_FakeAppUserModel_0(
           this,
           Invocation.method(
             #updateProfile,
@@ -143,19 +177,19 @@ class MockAuthOnlineDataSource extends _i1.Mock
             {#updateProfileRequest: updateProfileRequest},
           ),
         )),
-      ) as _i6.Future<_i2.AppUserModel>);
+      ) as _i8.Future<_i2.AppUserModel>);
 
   @override
-  _i6.Future<_i3.SuccessResponseModel> changePassword(
-          {required _i10.ChangePasswordRequest? changePasswordRequest}) =>
+  _i8.Future<_i3.SuccessAuthResponseModel> changePassword(
+          {required _i12.ChangePasswordRequest? changePasswordRequest}) =>
       (super.noSuchMethod(
         Invocation.method(
           #changePassword,
           [],
           {#changePasswordRequest: changePasswordRequest},
         ),
-        returnValue: _i6.Future<_i3.SuccessResponseModel>.value(
-            _FakeSuccessResponseModel_1(
+        returnValue: _i8.Future<_i3.SuccessAuthResponseModel>.value(
+            _FakeSuccessAuthResponseModel_1(
           this,
           Invocation.method(
             #changePassword,
@@ -163,51 +197,170 @@ class MockAuthOnlineDataSource extends _i1.Mock
             {#changePasswordRequest: changePasswordRequest},
           ),
         )),
-      ) as _i6.Future<_i3.SuccessResponseModel>);
+      ) as _i8.Future<_i3.SuccessAuthResponseModel>);
+
+  @override
+  _i8.Future<_i4.ForgetPasswordResponseModel> forgetPassword(
+          {required _i13.ForgetPasswordRequest? forgetPasswordRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #forgetPassword,
+          [],
+          {#forgetPasswordRequest: forgetPasswordRequest},
+        ),
+        returnValue: _i8.Future<_i4.ForgetPasswordResponseModel>.value(
+            _FakeForgetPasswordResponseModel_2(
+          this,
+          Invocation.method(
+            #forgetPassword,
+            [],
+            {#forgetPasswordRequest: forgetPasswordRequest},
+          ),
+        )),
+      ) as _i8.Future<_i4.ForgetPasswordResponseModel>);
+
+  @override
+  _i8.Future<_i3.SuccessAuthResponseModel> verifyResetCode(
+          {required _i14.VerifyResetCodeRequest? verifyRestCode}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #verifyResetCode,
+          [],
+          {#verifyRestCode: verifyRestCode},
+        ),
+        returnValue: _i8.Future<_i3.SuccessAuthResponseModel>.value(
+            _FakeSuccessAuthResponseModel_1(
+          this,
+          Invocation.method(
+            #verifyResetCode,
+            [],
+            {#verifyRestCode: verifyRestCode},
+          ),
+        )),
+      ) as _i8.Future<_i3.SuccessAuthResponseModel>);
+
+  @override
+  _i8.Future<_i3.SuccessAuthResponseModel> resetPassword(
+          {required _i15.ResetPasswordRequest? resetPasswordRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #resetPassword,
+          [],
+          {#resetPasswordRequest: resetPasswordRequest},
+        ),
+        returnValue: _i8.Future<_i3.SuccessAuthResponseModel>.value(
+            _FakeSuccessAuthResponseModel_1(
+          this,
+          Invocation.method(
+            #resetPassword,
+            [],
+            {#resetPasswordRequest: resetPasswordRequest},
+          ),
+        )),
+      ) as _i8.Future<_i3.SuccessAuthResponseModel>);
+
+  @override
+  _i8.Future<String> logOut() => (super.noSuchMethod(
+        Invocation.method(
+          #logOut,
+          [],
+        ),
+        returnValue: _i8.Future<String>.value(_i16.dummyValue<String>(
+          this,
+          Invocation.method(
+            #logOut,
+            [],
+          ),
+        )),
+      ) as _i8.Future<String>);
 }
 
 /// A class which mocks [AuthMapper].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthMapper extends _i1.Mock implements _i11.AuthMapper {
+class MockAuthMapper extends _i1.Mock implements _i17.AuthMapper {
   MockAuthMapper() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.AppUserEntity toAppUserModel(_i2.AppUserModel? appUserModel) =>
+  _i5.AppUserEntity toAppUserModel(_i2.AppUserModel? appUserModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #toAppUserModel,
           [appUserModel],
         ),
-        returnValue: _FakeAppUserEntity_2(
+        returnValue: _FakeAppUserEntity_3(
           this,
           Invocation.method(
             #toAppUserModel,
             [appUserModel],
           ),
         ),
-      ) as _i4.AppUserEntity);
+      ) as _i5.AppUserEntity);
+
+  @override
+  _i6.SuccessAuthEntity toForgetPasswordResponseModel(
+          _i4.ForgetPasswordResponseModel? forgetPasswordResponse) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #toForgetPasswordResponseModel,
+          [forgetPasswordResponse],
+        ),
+        returnValue: _FakeSuccessAuthEntity_4(
+          this,
+          Invocation.method(
+            #toForgetPasswordResponseModel,
+            [forgetPasswordResponse],
+          ),
+        ),
+      ) as _i6.SuccessAuthEntity);
+
+  @override
+  _i6.SuccessAuthEntity toSuccessAuthResponseModel(
+          _i3.SuccessAuthResponseModel? successAuthResponse) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #toSuccessAuthResponseModel,
+          [successAuthResponse],
+        ),
+        returnValue: _FakeSuccessAuthEntity_4(
+          this,
+          Invocation.method(
+            #toSuccessAuthResponseModel,
+            [successAuthResponse],
+          ),
+        ),
+      ) as _i6.SuccessAuthEntity);
 }
 
 /// A class which mocks [AuthOfflineDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthOfflineDataSource extends _i1.Mock
-    implements _i12.AuthOfflineDataSource {
+    implements _i18.AuthOfflineDataSource {
   MockAuthOfflineDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<void> saveToken({required String? token}) => (super.noSuchMethod(
+  _i8.Future<void> saveToken({required String? token}) => (super.noSuchMethod(
         Invocation.method(
           #saveToken,
           [],
           {#token: token},
         ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+
+  @override
+  _i8.Future<void> deleteToken() => (super.noSuchMethod(
+        Invocation.method(
+          #deleteToken,
+          [],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
 }

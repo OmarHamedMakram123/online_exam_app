@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/extension/extension.dart';
 import 'package:online_exam_app/core/styles/fonts/app_fonts.dart';
-import 'package:online_exam_app/core/utils/functions/handle_widget_state/handle_widget_state.dart';
-import 'package:online_exam_app/core/utils/functions/spaceing/spaceing.dart';
 import 'package:online_exam_app/dependency_injection/di.dart';
 import 'package:online_exam_app/src/presentation/subject/view_modekl/subject_action.dart';
 import 'package:online_exam_app/src/presentation/subject/view_modekl/subject_cubit.dart';
-import 'package:online_exam_app/src/presentation/subject/widget/custom_search.dart';
 import 'package:online_exam_app/src/presentation/subject/widget/subject_body.dart';
-import 'package:online_exam_app/src/presentation/subject/widget/subject_list_widget.dart';
 
 class SubjectView extends StatefulWidget {
   const SubjectView({super.key});

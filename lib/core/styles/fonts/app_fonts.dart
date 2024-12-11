@@ -29,7 +29,6 @@ class AppFonts{
    fontSize: 18.sp,
    color: AppColors.kBlack,
    fontFamily: _fontInter,
-
    fontWeight: FontWeight.w500,
 
  );
@@ -72,5 +71,13 @@ class AppFonts{
    color: AppColors.kBlack,
    fontWeight: FontWeight.w400,
    fontFamily: _fontInter
+ );
+
+
+ static TextStyle font14GrayWeight400FontInter=TextStyle(
+   fontWeight:FontWeight.w400 ,
+   fontFamily: _fontInter,
+   color:AppColors.kGray ,
+   fontSize: 14.sp,
  );
 }

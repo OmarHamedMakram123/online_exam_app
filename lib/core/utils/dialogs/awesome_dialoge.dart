@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 showAwesomeDialog(BuildContext context,
     {
       required String title,
+      bool  dismiss=true ,
     required String desc,
     required void Function() onOk,
     void Function()? onCancel, // Made onCancel optional
@@ -16,6 +17,7 @@ showAwesomeDialog(BuildContext context,
     animType: AnimType.rightSlide,
     title: title,
     desc: desc,
+    dismissOnTouchOutside: dismiss,
     btnOkText:buttonText ??  "Ok ", // اسم الزر
     btnCancelOnPress: onCancel != null
         ? () {

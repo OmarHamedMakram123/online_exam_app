@@ -4,10 +4,11 @@ import 'package:mockito/mockito.dart';
 import 'package:online_exam_app/core/api/common/api_result.dart';
 import 'package:online_exam_app/src/data/model/request/login_request.dart';
 import 'package:online_exam_app/src/domain/entities/app_user_entity.dart';
-import 'package:online_exam_app/src/domain/use_case/login_use_case.dart';
+import 'package:online_exam_app/src/domain/use_case/auth_use_case/login_use_case.dart';
 import 'package:online_exam_app/src/presentation/login/view_model/login_action.dart';
 import 'package:online_exam_app/src/presentation/login/view_model/login_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
+
 import 'login_cubit_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<LoginUseCase>()])

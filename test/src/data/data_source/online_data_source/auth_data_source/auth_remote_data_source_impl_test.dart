@@ -4,11 +4,15 @@ import 'package:online_exam_app/src/data/api/api_manger.dart';
 import 'package:online_exam_app/src/data/data_source/online_data_source/auth_data_source/auth_online_data_source.dart';
 import 'package:online_exam_app/src/data/data_source/online_data_source/auth_data_source/auth_online_data_source_impl.dart';
 import 'package:online_exam_app/src/data/model/request/change_password_request.dart';
+import 'package:online_exam_app/src/data/model/request/forget_password_request.dart';
 import 'package:online_exam_app/src/data/model/request/login_request.dart';
 import 'package:online_exam_app/src/data/model/request/register_request.dart';
+import 'package:online_exam_app/src/data/model/request/reset_password_request.dart';
 import 'package:online_exam_app/src/data/model/request/update_profile_request.dart';
+import 'package:online_exam_app/src/data/model/request/verify_reset_code_request.dart';
 import 'package:online_exam_app/src/data/model/response/app_user_model/app_user_model.dart';
-import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_response_model.dart';
+import 'package:online_exam_app/src/data/model/response/forget_password_response/forget_password_response_model.dart';
+import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_auth_response_model.dart';
 
 import '../../../data_api/api_manger.mocks.dart';
 
@@ -73,10 +77,10 @@ void main() {
         },
       );
       test(
-        "should return successAppUserModel when call apiMange.changePassword ",
+        "should return successResponseModel when call apiMange.changePassword ",
             () async {
           ChangePasswordRequest changePasswordRequest=ChangePasswordRequest();
-          SuccessResponseModel successResponseModel = SuccessResponseModel();
+          SuccessAuthResponseModel successResponseModel = SuccessAuthResponseModel();
           when(apiManger.changePassword(changePasswordRequest: changePasswordRequest)).thenAnswer(
                 (realInvocation) async =>successResponseModel ,
           );
@@ -84,6 +88,33 @@ void main() {
           expect(actual, successResponseModel);
         },
       );
+      test("should return forgetPasswordResponse when call apiMange.forgetPassword", () async{
+        ForgetPasswordRequest forgetPasswordRequest=ForgetPasswordRequest(email: "");
+        ForgetPasswordResponseModel forgetPasswordResponseModel=ForgetPasswordResponseModel(message: "", info: "");
+        when(apiManger.forgetPassword(forgetPasswordRequest: forgetPasswordRequest)).thenAnswer((realInvocation)async => forgetPasswordResponseModel ,);
+        var actual=await authDataSource.forgetPassword(forgetPasswordRequest: forgetPasswordRequest);
+        expect(actual, forgetPasswordResponseModel);
+        },);
+      test("should return successResponseModel when call apiMange.resetPassword", () async{
+        ResetPasswordRequest resetPasswordRequest=ResetPasswordRequest(email: "",newPassword: "");
+        SuccessAuthResponseModel successResponseModel=SuccessAuthResponseModel(message: "", token: "");
+        when(apiManger.resetPassword(resetPasswordRequest: resetPasswordRequest)).thenAnswer((realInvocation)async => successResponseModel,);
+        var actual=await authDataSource.resetPassword(resetPasswordRequest: resetPasswordRequest);
+        expect(actual, successResponseModel);
+      },);
+      test("should return forgetPasswordResponse when call apiMange.verifyRestCode", () async{
+        VerifyResetCodeRequest verifyRestCode=VerifyResetCodeRequest(resetCode: "");
+        SuccessAuthResponseModel successAuthResponseModel=SuccessAuthResponseModel(message: "");
+        when(apiManger.verifyResetCode(verifyRestCode: verifyRestCode)).thenAnswer((realInvocation)async => successAuthResponseModel ,);
+        var actual=await authDataSource.verifyResetCode(verifyRestCode: verifyRestCode);
+        expect(actual, successAuthResponseModel);
+      },);
+      test("should return  massage   when  call apiManger.logOut",() async{
+        String massage="";
+         when(apiManger.logoOut()).thenAnswer((realInvocation) async => massage,);
+        var actual=await authDataSource.logOut();
+        expect(actual, massage);
+         },);
     },
   );
 }

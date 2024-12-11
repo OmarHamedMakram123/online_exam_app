@@ -36,7 +36,7 @@ class CustomButtonWidget extends StatelessWidget {
         child: Text(
           text,
           style: AppFonts.font16kBlackWeight500Font.copyWith(
-            color: _getTextColor(color)
+            color: _getTextColor(textColor)
           ) // Corrected style name
         ),
       ),

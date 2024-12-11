@@ -47,6 +47,7 @@
   "browseBySubject":"تصفح حسب الموضوع",
    "survey": "الخدمة",
   "pleaseEnterLogin": "يرجى إدخال تسجيل الدخول",
-  "tryAgain": "حاول مرة أخرى"
-
+  "tryAgain": "حاول مرة أخرى",
+  "didNtReceiveCode": "لم تستبك كود? ",
+  "resend" : "مؤة اخرى"
 }

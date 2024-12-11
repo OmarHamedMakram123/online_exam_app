@@ -7,13 +7,18 @@ import 'package:online_exam_app/src/data/data_source/offline_data_source/auth_of
 import 'package:online_exam_app/src/data/data_source/online_data_source/auth_data_source/auth_online_data_source.dart';
 import 'package:online_exam_app/src/data/mappers/auth_mapper.dart';
 import 'package:online_exam_app/src/data/model/request/change_password_request.dart';
+import 'package:online_exam_app/src/data/model/request/forget_password_request.dart';
 import 'package:online_exam_app/src/data/model/request/login_request.dart';
 import 'package:online_exam_app/src/data/model/request/register_request.dart';
+import 'package:online_exam_app/src/data/model/request/reset_password_request.dart';
 import 'package:online_exam_app/src/data/model/request/update_profile_request.dart';
+import 'package:online_exam_app/src/data/model/request/verify_reset_code_request.dart';
 import 'package:online_exam_app/src/data/model/response/app_user_model/app_user_model.dart';
-import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_response_model.dart';
+import 'package:online_exam_app/src/data/model/response/forget_password_response/forget_password_response_model.dart';
+import 'package:online_exam_app/src/data/model/response/success_auth_reponse_model/success_auth_response_model.dart';
 import 'package:online_exam_app/src/data/repositories/auth_repository_impl.dart';
 import 'package:online_exam_app/src/domain/entities/app_user_entity.dart';
+import 'package:online_exam_app/src/domain/entities/success_auth_entity.dart';
 import 'package:online_exam_app/src/domain/repositories/auth_repository.dart';
 
 import 'auth_repositorty_impl_test.mocks.dart';
@@ -194,8 +199,8 @@ void main() {
           test(
             "should return appUserEntity when call authOnlineDataSource.changePassword and map appUserModel is Successfully",
             () async {
-              SuccessResponseModel successResponseModel =
-                  SuccessResponseModel();
+              SuccessAuthResponseModel successResponseModel =
+                  SuccessAuthResponseModel();
               when(mockedAuthOnlineDataSource.changePassword(
                       changePasswordRequest: changePasswordRequest))
                   .thenAnswer(
@@ -218,6 +223,86 @@ void main() {
           });
         },
       );
+      group("Test Method ForgetPassword  Auth Repository Impl ", () {
+        test("should return success<SuccessResponseModel> when call authOnlineDataSource.forgetPassword and map forgetPasswordResponse is successfully", ()async{
+          ForgetPasswordRequest forgetPasswordRequest=ForgetPasswordRequest(email: "email");
+          ForgetPasswordResponseModel forgetPasswordResponseModel=ForgetPasswordResponseModel();
+          SuccessAuthEntity successAuthEntity=SuccessAuthEntity();
+          when(mockedAuthOnlineDataSource.forgetPassword(forgetPasswordRequest: forgetPasswordRequest)).thenAnswer((realInvocation) async=>forgetPasswordResponseModel,);
+          when(mockedAuthMapper.toForgetPasswordResponseModel(forgetPasswordResponseModel)).thenReturn(successAuthEntity);
+          var actual=await authRepository.forgetPassword(forgetPasswordRequest: forgetPasswordRequest);
+          expect(actual, isA<Success<SuccessAuthEntity>>());
+        });
+        test("should return Failures<Exceptions> when call authOnlineDataSource.forgetPassword and map forgetPasswordResponse is Failures", ()async{
+          ForgetPasswordRequest forgetPasswordRequest=ForgetPasswordRequest(email: "email");
+          ForgetPasswordResponseModel forgetPasswordResponseModel=ForgetPasswordResponseModel();
+          SuccessAuthEntity successAuthEntity=SuccessAuthEntity();
+          when(mockedAuthOnlineDataSource.forgetPassword(forgetPasswordRequest: forgetPasswordRequest)).thenThrow(Exception(),);
+          when(mockedAuthMapper.toForgetPasswordResponseModel(forgetPasswordResponseModel)).thenReturn(successAuthEntity);
+          var actual=await authRepository.forgetPassword(forgetPasswordRequest: forgetPasswordRequest);
+          expect(actual, isA<Failures<SuccessAuthEntity>>());
+        });
+
+      },);
+      group("Test Method ResetPassword  Auth Repository Impl ", () {
+        test("should return success<SuccessResponseModel> when call authOnlineDataSource.resetPassword and map SuccessAuthResponseModel is successfully", ()async{
+          ResetPasswordRequest resetPasswordRequest=ResetPasswordRequest(email: "email",newPassword: "");
+          SuccessAuthResponseModel successAuthResponseModel=SuccessAuthResponseModel();
+          SuccessAuthEntity successAuthEntity=SuccessAuthEntity();
+          when(mockedAuthOnlineDataSource.resetPassword(resetPasswordRequest: resetPasswordRequest)).thenAnswer((realInvocation) async=>successAuthResponseModel,);
+          when(mockedAuthMapper.toSuccessAuthResponseModel(successAuthResponseModel)).thenReturn(successAuthEntity);
+          var actual=await authRepository.resetPassword(resetPasswordRequest: resetPasswordRequest);
+          expect(actual, isA<Success<SuccessAuthEntity>>());
+        });
+        test("should return Failures<Exceptions> when call authOnlineDataSource.resetPassword and map resetPasswordResponse is Failures", ()async{
+          SuccessAuthResponseModel successAuthResponseModel=SuccessAuthResponseModel();
+          ResetPasswordRequest resetPasswordRequest=ResetPasswordRequest(email: "email", newPassword: "newPassword");
+          SuccessAuthEntity successAuthEntity=SuccessAuthEntity();
+          when(mockedAuthOnlineDataSource.resetPassword(resetPasswordRequest: resetPasswordRequest)).thenThrow(Exception(),);
+          when(mockedAuthMapper.toSuccessAuthResponseModel(successAuthResponseModel)).thenReturn(successAuthEntity);
+          var actual=await authRepository.resetPassword(resetPasswordRequest: resetPasswordRequest);
+          expect(actual, isA<Failures<SuccessAuthEntity>>());
+        });
+
+      },);
+      group("Test Method VerifyResetCode  Auth Repository Impl ", () {
+        test("should return success<SuccessResponseModel> when call authOnlineDataSource.verifyResetCodeRequest and map SuccessAuthResponseModel is successfully", ()async{
+          VerifyResetCodeRequest verifyResetCodeRequest=VerifyResetCodeRequest(resetCode:"");
+          SuccessAuthResponseModel successAuthResponseModel=SuccessAuthResponseModel();
+          SuccessAuthEntity successAuthEntity=SuccessAuthEntity();
+          when(mockedAuthOnlineDataSource.verifyResetCode(verifyRestCode: verifyResetCodeRequest)).thenAnswer((realInvocation) async=>successAuthResponseModel,);
+          when(mockedAuthMapper.toSuccessAuthResponseModel(successAuthResponseModel)).thenReturn(successAuthEntity);
+          var actual=await authRepository.verifyResetCode(verifyRestCode: verifyResetCodeRequest);
+          expect(actual, isA<Success<SuccessAuthEntity>>());
+        });
+        test("should return Failures<Exceptions> when call authOnlineDataSource.resetPassword and map resetPasswordResponse is Failures", ()async{
+          VerifyResetCodeRequest verifyResetCodeRequest=VerifyResetCodeRequest(resetCode:"");
+          SuccessAuthResponseModel successAuthResponseModel=SuccessAuthResponseModel();
+          SuccessAuthEntity successAuthEntity=SuccessAuthEntity();
+          when(mockedAuthOnlineDataSource.verifyResetCode(verifyRestCode: verifyResetCodeRequest)).thenThrow(Exception(),);
+          when(mockedAuthMapper.toSuccessAuthResponseModel(successAuthResponseModel)).thenReturn(successAuthEntity);
+          var actual=await authRepository.verifyResetCode(verifyRestCode: verifyResetCodeRequest);
+          expect(actual, isA<Failures<SuccessAuthEntity>>());
+        });
+      },);
+      group("Test Method Logout  Auth Repository Impl ", () {
+        test("should return success<bool> when call authOnlineDataSource.logOut  is successfully", ()async{
+          SuccessAuthResponseModel successAuthResponseModel=SuccessAuthResponseModel();
+          when(mockedAuthOnlineDataSource.logOut()).thenAnswer((realInvocation)async =>"" ,);
+          when(authOfflineDataSource.deleteToken()).thenAnswer((realInvocation)async => {},);
+          var actual=await authRepository.logOut();
+          expect(actual, isA<Success<bool>>());
+        });
+        test("should return Failures<Exceptions> when call authOnlineDataSource.logout  is Failures", ()async{
+          when(mockedAuthOnlineDataSource.logOut()).thenThrow(Exception(),);
+          var actual=await authRepository.logOut();
+          expect(actual, isA<Failures<bool>>());
+        });
+      },);
     },
+
   );
+
+
+
 }

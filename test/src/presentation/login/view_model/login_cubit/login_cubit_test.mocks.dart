@@ -14,7 +14,8 @@ import 'package:online_exam_app/src/domain/entities/app_user_entity.dart'
     as _i6;
 import 'package:online_exam_app/src/domain/repositories/auth_repository.dart'
     as _i2;
-import 'package:online_exam_app/src/domain/use_case/login_use_case.dart' as _i3;
+import 'package:online_exam_app/src/domain/use_case/auth_use_case/login_use_case.dart'
+    as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

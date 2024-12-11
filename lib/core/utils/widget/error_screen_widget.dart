@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:online_exam_app/core/styles/images/app_image_animations.dart';
-import '../../styles/images/app_images.dart';
-
 class ErrorScreenWidget extends StatelessWidget {
   final String text;
   final String errorMassage;
   final void Function()? onPressed;
-  final String ? image;
-  const ErrorScreenWidget({super.key,
-    required this.text, required this.errorMassage,
-    this.onPressed, this.image});
+  final String? image;
+  const ErrorScreenWidget(
+      {super.key,
+      required this.text,
+      required this.errorMassage,
+      this.onPressed,
+      this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +22,17 @@ class ErrorScreenWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(image ??  AppImageAnimations.error, height: 150.h),
-          Text(
-              textAlign: TextAlign.center,
-              errorMassage,
-              style: TextStyle(
-                  fontSize: 15.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600)),
+          Lottie.asset(image ?? AppImageAnimations.error, height: 150.h),
+          Expanded(
+            child: Text(
+                textAlign: TextAlign.center,
+                errorMassage,
+                maxLines: 3,
+                style: TextStyle(
+                    fontSize: 15.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600)),
+          ),
           SizedBox(
             height: 14.h,
           ),

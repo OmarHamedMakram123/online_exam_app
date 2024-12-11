@@ -8,7 +8,7 @@ import 'package:online_exam_app/src/domain/entities/app_user_entity.dart';
 import 'package:online_exam_app/src/presentation/login/view_model/login_action.dart';
 
 import '../../../data/model/request/login_request.dart';
-import '../../../domain/use_case/login_use_case.dart';
+import '../../../domain/use_case/auth_use_case/login_use_case.dart';
 
 part 'login_state.dart';
 

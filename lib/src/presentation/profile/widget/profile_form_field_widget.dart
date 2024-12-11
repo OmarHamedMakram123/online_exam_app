@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_exam_app/core/extension/extension.dart';
-import 'package:online_exam_app/core/styles/colors/app_colors.dart';
+import 'package:online_exam_app/core/utils/functions/spaceing/spaceing.dart';
 import 'package:online_exam_app/core/utils/functions/validators/validations.dart';
+import 'package:online_exam_app/src/domain/entities/app_user_entity.dart';
 import 'package:online_exam_app/src/presentation/profile/view_mdoel/profile_action.dart';
-
-import '../../../../../../config/routes/page_route_name.dart';
 import '../../../../core/utils/widget/app_text_form_feild.dart';
-import '../../../../core/utils/widget/custom_button_widget.dart';
 import '../view_mdoel/profile_cubit.dart';
 
 class ProfileFormFieldWidget extends StatefulWidget {
@@ -20,59 +17,82 @@ class ProfileFormFieldWidget extends StatefulWidget {
 
 class _ProfileFormFieldWidgetState extends State<ProfileFormFieldWidget> {
   @override
+  void initState() {
+    BlocProvider.of<ProfileCubit>(context).profilePopularFields(
+        userEntity: BlocProvider.of<ProfileCubit>(context).appUserEntity ??
+            AppUserEntity(
+                username: "",
+                firstName: "",
+                lastName: "",
+                email: "",
+                phone: ""));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var profileViewModel = BlocProvider.of<ProfileCubit>(context);
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         return Form(
             key: profileViewModel.formKey,
-            // onChanged: () {
-            //   if (profileViewModel.isFormField) {
-            //     profileViewModel.doAction(
-            //         ChangeFormFieldEvent(isFormField: false));
-            //   }
-            // },
             child: Column(children: [
               CustomTextFromField(
+                onChanged: (p0) {
+                  profileViewModel
+                      .doAction(ChangeFormFieldAction(isFormField: true));
+                },
                 hintText: profileViewModel.appUserEntity?.username ?? "",
                 labelText: context.localizations.userName,
-                controller: TextEditingController(),
-                validator: (value) =>Validations.validateName(value),
+                controller: profileViewModel.userNameController,
+                validator: (value) => Validations.validateName(value),
                 inputType: TextInputType.name,
               ),
-              SizedBox(height: 24.h),
+              verticalSpace(24),
               Row(
                 children: [
                   Expanded(
                     child: CustomTextFromField(
+                      onChanged: (p0) {
+                        profileViewModel
+                            .doAction(ChangeFormFieldAction(isFormField: true));
+                      },
                       hintText: profileViewModel.appUserEntity?.firstName ?? "",
                       labelText: context.localizations.firstName,
-                      controller: TextEditingController(),
-                      validator: (value) =>Validations.validateName(value),
+                      controller: profileViewModel.firstNameController,
+                      validator: (value) => Validations.validateName(value),
                       inputType: TextInputType.name,
                     ),
                   ),
-                  SizedBox(width: 16.h),
+                  verticalSpace(16),
                   Expanded(
                     child: CustomTextFromField(
+                      onChanged: (p0) {
+                        profileViewModel
+                            .doAction(ChangeFormFieldAction(isFormField: true));
+                      },
                       hintText: profileViewModel.appUserEntity?.lastName ?? "",
                       labelText: context.localizations.lastName,
-                      controller: TextEditingController(),
-                      validator: (value) =>Validations.validateName(value),
+                      controller: profileViewModel.lastNameController,
+                      validator: (value) => Validations.validateName(value),
                       inputType: TextInputType.name,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 24.h),
+              verticalSpace(24),
               CustomTextFromField(
+                onChanged: (p0) {
+                  profileViewModel
+                      .doAction(ChangeFormFieldAction(isFormField: true));
+                },
                 hintText: profileViewModel.appUserEntity?.email ?? "",
                 labelText: context.localizations.enterEmail,
-                controller: TextEditingController(),
-                validator: (value) =>Validations.validateEmail(value),
+                controller: profileViewModel.emailController,
+                validator: (value) => Validations.validateEmail(value),
                 inputType: TextInputType.emailAddress,
               ),
-              SizedBox(height: 24.h),
+              verticalSpace(24),
               CustomTextFromField(
                 labelText: "",
                 hintText: "***********",
@@ -80,45 +100,25 @@ class _ProfileFormFieldWidgetState extends State<ProfileFormFieldWidget> {
                 inputType: TextInputType.none,
                 isObscureText: true,
                 suffixIcon: TextButton(
-                  onPressed: () => profileViewModel.doAction(NavigateToChangePasswordAction()),
-                  child:  Text(context.localizations.change),
+                  onPressed: () => profileViewModel
+                      .doAction(NavigateToChangePasswordAction()),
+                  child: Text(context.localizations.change),
                 ),
               ),
-              SizedBox(height: 24.h),
+              verticalSpace(24),
               CustomTextFromField(
+                onChanged: (p0) {
+                  profileViewModel
+                      .doAction(ChangeFormFieldAction(isFormField: true));
+                },
                 hintText: profileViewModel.appUserEntity?.phone ?? "",
                 labelText: context.localizations.phone,
-                controller: TextEditingController(),
-                validator: (value) =>Validations.validatePhoneNumber(value),
+                controller: profileViewModel.phoneController,
+                validator: (value) => Validations.validatePhoneNumber(value),
                 inputType: TextInputType.phone,
-              ),
-              SizedBox(height: 24.h),
-              CustomButtonWidget(
-                text: context.localizations.update,
-              //  color: AppColors.kGray,
-                cheekBackGroundColor: true,
-                onPressed: () {
-
-                },
               ),
             ]));
       },
     );
-  }
-
-  // void updatePasswordButton(ProfileCubit profileViewModel) {
-  //   if (!profileViewModel.isFormField) {
-  //     profileViewModel.doAction(ChangeFormFieldEvent(isFormField: true));
-  //     if (profileViewModel.formKey.currentState!.validate()) {
-  //       profileViewModel.doAction(EditProfileEvent()).then((value) {
-  //         profileViewModel.doAction(GetUserInfoEvent());
-  //         profileViewModel.doAction(ResetFormFieldEvent());
-  //       });
-  //     }
-  //   }
-
-
-  void goNextToChangePassword() {
-     Navigator.pushNamed(context, PageRouteName.resetPassword);
   }
 }

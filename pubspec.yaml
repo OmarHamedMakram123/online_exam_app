@@ -48,6 +48,8 @@ dependencies:
   flutter_svg:
 #  Flutter library to load and cache network images. Can also be used with placeholder and error widgets
   cached_network_image:
+#    A flutter package which will help you to generate pin code fields. Can be useful for OTP for example.
+  pin_code_fields:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_exam_app/config/routes/page_route_name.dart';
 import 'package:online_exam_app/core/extension/extension.dart';
 import 'package:online_exam_app/dependency_injection/di.dart';
 import 'package:online_exam_app/src/presentation/change_password/view_model/change_password_cubit.dart';
@@ -49,10 +50,15 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
     } else if (state is ChangePasswordSuccessState) {
       LoadingDialog.hide(context);
       showAwesomeDialog(
+        dismiss: false,
         context,
         desc: "Change Password Successfully",
         title: "Success",
-        onOk: () {},
+        onOk: () => Navigator.pushNamedAndRemoveUntil(
+          context,
+          PageRouteName.baseScreen,
+          (route) => false,
+        ),
         dialogType: DialogType.success,
       );
     }

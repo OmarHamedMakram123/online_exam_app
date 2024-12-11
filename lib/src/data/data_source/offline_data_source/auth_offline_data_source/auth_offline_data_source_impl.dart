@@ -16,4 +16,9 @@ class AuthOfflineDataSourceImpl implements AuthOfflineDataSource {
       throw Exception("Token Is Empty");
     }
   }
+
+  @override
+  Future<void> deleteToken() async{
+  return cachingData.deleteData(key: CacheKeys.token);
+  }
 }

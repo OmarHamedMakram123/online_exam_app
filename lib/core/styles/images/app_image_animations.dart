@@ -6,4 +6,5 @@ class AppImageAnimations{
   static const String cartEmpty="assets/image/animations/cart_empty.json";
   static const String invalidToken=
       "assets/image/animations/invalid_token.json";
+  static const String splash="assets/image/animations/success.json";
 }

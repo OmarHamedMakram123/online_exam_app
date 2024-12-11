@@ -1,0 +1,3 @@
+sealed class ResetPasswordAction{}
+class ResetPasswordContinueButtonPressedAction extends ResetPasswordAction {}
+class NavigateToBaseMainScreenAction extends ResetPasswordAction{}
