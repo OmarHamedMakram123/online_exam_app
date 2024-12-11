@@ -1,19 +1,33 @@
-name : unit_test_verifications
+ name : Test Flutter WorkFlow
 
-on:
-  push:
+ on:
+   push:
 
-jobs:
-  test:
-    runs-on: windows-latest
+   pullRequest:
 
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter_version: 3.22.2
+ jobs:
+   test:
+     name: run flutter test ubuntu
+     run-on: ubuntu-latest
 
-      - run: flutter pub get
-      - run: flutter test
+   steps:
+    - name: checkOut Code
+      uses: actions/cache@v3
+
+    - name: install Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter_version: 3.22.2
+
+    - name: Install package
+      run : flutter pub get
+    - name : run flutter test
+      run : flutter test
+    - name: run flutter test wiht coverage
+      run : flutter test --coverage
+    - name: upload coverge result
+      uses: actions/upload-artifact@v3
+      with:
+        name: flutter-coverage
+        path: coverage/lcov-report/
