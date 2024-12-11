@@ -34,7 +34,6 @@ name: Test Flutter WorkFlow
 on:
   push:
     branches:
-      - main  # أو أي فرع آخر تريد مراقبته، مثل develop أو غيره
 
 jobs:
   test:
