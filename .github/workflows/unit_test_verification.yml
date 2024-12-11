@@ -3,9 +3,6 @@
  on:
    push:
 
-   pull_request:
-
-
  jobs:
    test:
      name: run flutter test ubuntu
