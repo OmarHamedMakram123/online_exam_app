@@ -63,9 +63,3 @@ jobs:
       - name: Run Flutter Tests with Coverage
         run: flutter test --coverage
 
-      # خطوة 6: رفع نتائج التغطية كـ Artifact
-      - name: Upload Coverage Result
-        uses: actions/upload-artifact@v3
-        with:
-          name: flutter-coverage
-          path: coverage/  # تأكد من المسار الصحيح
