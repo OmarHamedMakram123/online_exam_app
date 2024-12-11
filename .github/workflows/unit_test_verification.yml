@@ -68,4 +68,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: flutter-coverage
-          path: coverage/lcov-report/  # تأكد من المسار الصحيح
+          path: coverage/  # تأكد من المسار الصحيح
