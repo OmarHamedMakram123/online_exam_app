@@ -10,6 +10,8 @@ import 'package:mockito/src/dummies.dart' as _i7;
 import 'package:online_exam_app/core/api/common/api_result.dart' as _i4;
 import 'package:online_exam_app/src/data/model/request/change_password_request.dart'
     as _i10;
+import 'package:online_exam_app/src/data/model/request/check_answer_request.dart'
+    as _i21;
 import 'package:online_exam_app/src/data/model/request/forget_password_request.dart'
     as _i12;
 import 'package:online_exam_app/src/data/model/request/login_request.dart'
@@ -24,12 +26,23 @@ import 'package:online_exam_app/src/data/model/request/verify_reset_code_request
     as _i14;
 import 'package:online_exam_app/src/domain/entities/app_user_entity.dart'
     as _i5;
+import 'package:online_exam_app/src/domain/entities/check_question_entity.dart'
+    as _i20;
+import 'package:online_exam_app/src/domain/entities/exam_entity.dart' as _i18;
+import 'package:online_exam_app/src/domain/entities/question_entity.dart'
+    as _i23;
 import 'package:online_exam_app/src/domain/entities/subject_entity.dart'
     as _i16;
 import 'package:online_exam_app/src/domain/entities/success_auth_entity.dart'
     as _i11;
+import 'package:online_exam_app/src/domain/repositories/answer_repository.dart'
+    as _i19;
 import 'package:online_exam_app/src/domain/repositories/auth_repository.dart'
     as _i2;
+import 'package:online_exam_app/src/domain/repositories/exam_repository.dart'
+    as _i17;
+import 'package:online_exam_app/src/domain/repositories/question_repository.dart'
+    as _i22;
 import 'package:online_exam_app/src/domain/repositories/subject_repository.dart'
     as _i15;
 
@@ -252,4 +265,92 @@ class MockSubjectRepository extends _i1.Mock implements _i15.SubjectRepository {
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<List<_i16.SubjectEntity>>>);
+}
+
+/// A class which mocks [ExamRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockExamRepository extends _i1.Mock implements _i17.ExamRepository {
+  MockExamRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.Future<_i4.ApiResult<List<_i18.ExamEntity>>> getExamOnSubject(
+          {required String? subjectId}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getExamOnSubject,
+          [],
+          {#subjectId: subjectId},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<List<_i18.ExamEntity>>>.value(
+            _i7.dummyValue<_i4.ApiResult<List<_i18.ExamEntity>>>(
+          this,
+          Invocation.method(
+            #getExamOnSubject,
+            [],
+            {#subjectId: subjectId},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<List<_i18.ExamEntity>>>);
+}
+
+/// A class which mocks [AnswerRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAnswerRepository extends _i1.Mock implements _i19.AnswerRepository {
+  MockAnswerRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.Future<_i4.ApiResult<_i20.CheckQuestionEntity>> checkAnswer(
+          {required _i21.CheckAnswerRequest? checkAnswerRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #checkAnswer,
+          [],
+          {#checkAnswerRequest: checkAnswerRequest},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i20.CheckQuestionEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i20.CheckQuestionEntity>>(
+          this,
+          Invocation.method(
+            #checkAnswer,
+            [],
+            {#checkAnswerRequest: checkAnswerRequest},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i20.CheckQuestionEntity>>);
+}
+
+/// A class which mocks [QuestionRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockQuestionRepository extends _i1.Mock
+    implements _i22.QuestionRepository {
+  MockQuestionRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.Future<_i4.ApiResult<List<_i23.QuestionEntity>>> getAllQuestionOnExamById(
+          {required String? examId}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllQuestionOnExamById,
+          [],
+          {#examId: examId},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<List<_i23.QuestionEntity>>>.value(
+            _i7.dummyValue<_i4.ApiResult<List<_i23.QuestionEntity>>>(
+          this,
+          Invocation.method(
+            #getAllQuestionOnExamById,
+            [],
+            {#examId: examId},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<List<_i23.QuestionEntity>>>);
 }

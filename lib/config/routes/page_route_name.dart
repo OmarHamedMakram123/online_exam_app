@@ -7,11 +7,11 @@ class PageRouteName{
   static const String verifyResetCode="verifyResetCode";
   static const String resetPassword="resetPassword";
   static const String changePassword="changePassword";
-  static const String getAllExamsScreen="GetAllExamsScreen";
+  static const String exam="exam";
   static const String exploreScreen="exploreScreen";
   static const String startExamScreen="startExamScreen";
   static const String questionsScreen="questionsScreen";
   static const String resultAnswerScreen="resultAnswerScreen";
   static const String examScoreScreen="examScoreScreen";
-  static const String resultScreen="resultScreen";
+
 }

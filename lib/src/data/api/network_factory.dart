@@ -39,9 +39,7 @@ class AppInterceptors extends InterceptorsWrapper{
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async{
     String ? token=await getIt.get<CachingDataSecureStorage>().readData(key:CacheKeys.token);
-    print("omar ja :$token");
-
-   if(token !=null){
+    if(token !=null){
      options.headers["token"] =token ;
    }
     super.onRequest(options, handler);

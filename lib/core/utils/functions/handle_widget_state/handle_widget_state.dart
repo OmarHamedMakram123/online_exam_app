@@ -52,4 +52,10 @@ class HandleWidgetState {
       (route) => false,
     );
   }
+
+  static void navigateToPopScreen(BuildContext context){
+    if(Navigator.canPop(context)){
+      Navigator.pop(context);
+    }
+  }
 }

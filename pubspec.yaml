@@ -50,6 +50,12 @@ dependencies:
   cached_network_image:
 #    A flutter package which will help you to generate pin code fields. Can be useful for OTP for example.
   pin_code_fields:
+#Library that allows you to display progress widgets based on percentage, can be Circular or Linear, you can also customize it to your needs.
+  percent_indicator:
+#    Lightweight and blazing fast key-value database written in pure Dart. Strongly encrypted using AES-256
+  hive:
+#    Extension for Hive. Makes it easier to use Hive in Flutter apps
+  hive_flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -66,7 +72,8 @@ dev_dependencies:
   json_serializable:
 #    A testing library which makes it easy to test blocs. Built to be used with the bloc state management package
   bloc_test:
-
+#    Extension for Hive. Automatically generates TypeAdapters to store any class
+  hive_generator:
 
 
 

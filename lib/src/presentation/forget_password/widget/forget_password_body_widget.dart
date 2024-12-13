@@ -19,7 +19,7 @@ class ForgetPasswordBodyWidget extends StatelessWidget {
           children: [
             Text(
               context.localizations.forgetPassword,
-              style: AppFonts.font18kBlue0Weight500FontInter,
+              style: AppFonts.font18kBlack0Weight500FontInter,
             ),
             verticalSpace(
               16,

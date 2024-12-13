@@ -21,7 +21,7 @@ class SubjectBody extends StatelessWidget {
           verticalSpace(30),
           Text(
             context.localizations.browseBySubject,
-            style: AppFonts.font18kBlue0Weight500FontInter,
+            style: AppFonts.font18kBlack0Weight500FontInter,
           ),
           verticalSpace(24),
           const Expanded(

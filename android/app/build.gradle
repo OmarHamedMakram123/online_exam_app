@@ -25,9 +25,8 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.online_exam_app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk =flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +48,20 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.debug
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            dimension "default"
+            resValue "string", "app_name", "online Exam App"
+        }
+        develpoment {
+            dimension "default"
+            resValue "string", "app_name", "online Exam"
+            applicationIdSuffix ".dev"
+
         }
     }
 }

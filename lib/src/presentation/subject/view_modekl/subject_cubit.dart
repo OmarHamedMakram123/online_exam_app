@@ -18,7 +18,7 @@ class SubjectCubit extends Cubit<SubjectState> {
   Future<void>doAction(SubjectAction subjectAction)async{
     switch (subjectAction) {
       case GetAllSubjectAction():
-        return await _getAllSubject();
+        return  _getAllSubject();
     }
   }
 

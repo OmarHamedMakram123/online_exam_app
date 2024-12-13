@@ -9,4 +9,7 @@ class EndPoints{
   static const String verifyResetCode="auth/verifyResetCode";
   static const String resetPassword="auth/resetPassword";
   static const String logOut="auth/logout";
+  static const String getAllExam="exams";
+  static const String questions="questions";
+  static const String checkAnswer="questions/check";
 }

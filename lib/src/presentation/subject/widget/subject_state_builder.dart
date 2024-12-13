@@ -17,7 +17,6 @@ class SubjectStateBuilder extends StatelessWidget {
         if (state is GetAllSubjectLoadingState) {
           return HandleWidgetState.buildLoadingWidget(context);
         } else if (state is GetAllSubjectFailuresState) {
-          // وضع Expanded داخل Column أو إزالة Expanded
           return HandleWidgetState.buildErrorWidget(
             onPressed: () =>
                 subjectViewModel.doAction(GetAllSubjectAction()),

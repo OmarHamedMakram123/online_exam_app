@@ -15,7 +15,7 @@ class SubjectListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          //  Navigator.pushNamed(context, PageRouteName.examsView,arguments:subjectEntity);
+            Navigator.pushNamed(context, PageRouteName.exam,arguments:subjectEntity);
         },
         child: Card(
           elevation: 11,
